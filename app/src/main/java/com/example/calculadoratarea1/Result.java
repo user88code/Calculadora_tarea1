@@ -27,7 +27,7 @@ public class Result extends AppCompatActivity {
         // aplicar intent get Extra
         //Intent intent = getIntent();
         Bundle extras = getIntent().getExtras();
-         name = extras.getString("Respuesta");
+         name = extras.getString("RESPUESTA");
         //name = "un texto";
          Toast.makeText(getApplicationContext(),name, Toast.LENGTH_SHORT).show();
 
