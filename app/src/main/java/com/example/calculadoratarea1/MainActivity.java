@@ -41,28 +41,38 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void resta(View view) {
-        Integer respuestaNum = Integer.parseInt(numero_1.getText().toString()) - Integer.parseInt(numero_2.getText().toString());
-        Intent intent = new Intent(getApplicationContext(), Result.class);
-        intent.putExtra("RESPUESTA", String.valueOf(respuestaNum));
-        startActivity(intent);
-        Toast.makeText(this, String.valueOf(respuestaNum), Toast.LENGTH_SHORT).show();
-    };
+
+        try {
+            Integer respuestaNum = Integer.parseInt(numero_1.getText().toString()) - Integer.parseInt(numero_2.getText().toString());
+            Intent intent = new Intent(getApplicationContext(), Result.class);
+            intent.putExtra("RESPUESTA", String.valueOf(respuestaNum));
+            startActivity(intent);
+            Toast.makeText(this, String.valueOf(respuestaNum), Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, "Numeros no validos", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 
     public void multiplica(View view) {
-        Integer respuestaNum = Integer.parseInt(numero_1.getText().toString()) * Integer.parseInt(numero_2.getText().toString());
-        Intent intent = new Intent(getApplicationContext(), Result.class);
-        intent.putExtra("RESPUESTA", String.valueOf(respuestaNum));
-        startActivity(intent);
-        Toast.makeText(this, String.valueOf(respuestaNum), Toast.LENGTH_SHORT).show();
-    };
+        try{
+            Integer respuestaNum = Integer.parseInt(numero_1.getText().toString()) * Integer.parseInt(numero_2.getText().toString());
+            Intent intent = new Intent(getApplicationContext(), Result.class);
+            intent.putExtra("RESPUESTA", String.valueOf(respuestaNum));
+            startActivity(intent);
+            Toast.makeText(this, String.valueOf(respuestaNum), Toast.LENGTH_SHORT).show();
+        }
+        catch(Exception e){
+            Toast.makeText(this,"Numeros no validos", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     public void divide(View view) {
-        Integer respuestaNum = Integer.parseInt(numero_1.getText().toString()) / Integer.parseInt(numero_2.getText().toString());
+        Double respuestaNum = Double.parseDouble(numero_1.getText().toString()) / Double.parseDouble(numero_2.getText().toString());
         Intent intent = new Intent(getApplicationContext(), Result.class);
         intent.putExtra("RESPUESTA", String.valueOf(respuestaNum));
         startActivity(intent);
         Toast.makeText(this, String.valueOf(respuestaNum), Toast.LENGTH_SHORT).show();
-    };
-
+    }
 
 }
